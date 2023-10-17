@@ -24,13 +24,11 @@ public class HomeSteps implements CommonPage {
     public void i_open_url_of_homepage() {
         BrowserUtils.getDriver();
 
-
-
-
     }
-
     @Then("Verify Title of Home page is {string}")
     public void verifyTitleOfHomePageIs(String title) {
         Assert.assertEquals(title, BrowserUtils.getDriver().getTitle());
     }
-    }
+
+
+}
