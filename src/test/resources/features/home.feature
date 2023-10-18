@@ -7,3 +7,4 @@ Feature: Home Page Related Scenarios
     @M-01
     Scenario: Verify the Title of the page
       Then Verify Title of Home page is "Movieo"
+
