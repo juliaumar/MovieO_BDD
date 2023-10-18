@@ -11,8 +11,8 @@ public class Hooks {
     @Before
 
     public void setUp(Scenario scenario) {
-        //initializes the driver object to open the browser
-        // BrowserUtils.getDriver();
+       // initializes the driver object to open the browser
+       // BrowserUtils.getDriver();
         CucumberLogUtils.initScenario(scenario);
         scenario.log(CucumberLogUtils.getLogTime() + ""); //custom message would go here
     }

@@ -2,6 +2,7 @@ package utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class BrowserUtils {
@@ -176,6 +178,21 @@ public class BrowserUtils {
             return true;
         }
     }
+    public static String switchToWindowAndVerifyTitle(){
+        String currentWindowID = driver.getWindowHandle();
+        String title = "Verified";
+
+        Set<String> allWindowIDs = driver.getWindowHandles();
+        for(String each: allWindowIDs){
+            if (!each.equals(currentWindowID)){
+                driver.switchTo().window(each);
+                title = driver.getTitle();
+                driver.close();
+            }
+        }
+
+        driver.switchTo().window(currentWindowID);
+        return title;}
 
     public static void switchToNewWindow(){
         for(String each: driver.getWindowHandles()){
@@ -193,5 +210,30 @@ public class BrowserUtils {
         for (WebElement element: list) {
             BrowserUtils.click(element);
         }
+
+
+    }
+    public static void switchToPopUpWindow(By by) {
+        BrowserUtils.getDriver().findElement(by).click();
+        Set<String> handles = BrowserUtils.getDriver().getWindowHandles();
+        if (handles.size() > 1) {
+            for (String currentWindow : handles) {
+                BrowserUtils.getDriver().switchTo().window(currentWindow);
+            }
+        } else {
+            System.out.println("There is only one window open...");
+        }
+    }
+    public static void switchToNextWindow(WebDriver driver){
+        String currentWindowId = driver.getWindowHandle();
+        Set<String> allWindowIDs = driver.getWindowHandles();
+
+        for (String eachWindow : allWindowIDs){
+            if(!eachWindow.equalsIgnoreCase(currentWindowId)){
+                driver.switchTo().window(eachWindow);
+            }
+        }
+
+
     }
 }
