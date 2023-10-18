@@ -23,7 +23,6 @@ public class HomeSteps implements CommonPage {
     @Given("I open url of homepage")
     public void i_open_url_of_homepage() {
         BrowserUtils.getDriver();
-
     }
     @Then("Verify Title of Home page is {string}")
     public void verifyTitleOfHomePageIs(String title) {
