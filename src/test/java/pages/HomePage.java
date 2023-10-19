@@ -15,9 +15,12 @@ public class HomePage {
 
     @FindBy(xpath = "//*[@data-gtm-location='left nav']")
     public List<WebElement> list;
-    
 
+    @FindBy(xpath = "/html//a[@id='nav-pl-movie']")
+    public WebElement browseMoviesBtn;
 
+    @FindBy(css = ".button.m-hide.new-list")
+    public WebElement createAListBtn;
 
 
 
