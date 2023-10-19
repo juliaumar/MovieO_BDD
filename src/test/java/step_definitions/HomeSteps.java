@@ -28,6 +28,16 @@ public class HomeSteps implements CommonPage {
     public void verifyTitleOfHomePageIs(String title) {
         Assert.assertEquals(title, BrowserUtils.getDriver().getTitle());
     }
+    @When("Click in the Browse Movies button")
+    public void clickInTheBrowseMoviesButton() throws InterruptedException {
+        BrowserUtils.click(page.browseMoviesBtn);
+        Thread.sleep(3000);
+    }
 
+    @Then("Verify the Title of Browse Movies page is {string}")
+    public void verifyTheTitleOfBrowseMoviesPageIs(String title) {
+        Assert.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+        System.out.println(BrowserUtils.getDriver().getTitle());
+    }
 
 }
