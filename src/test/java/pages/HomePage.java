@@ -9,10 +9,6 @@ import java.util.List;
 
 public class HomePage {
 
-    public HomePage() {
-        PageFactory.initElements(BrowserUtils.getDriver(), this);
-    }
-
     @FindBy(xpath = "//*[@data-gtm-location='left nav']")
     public List<WebElement> list;
 
@@ -22,7 +18,8 @@ public class HomePage {
     @FindBy(css = ".button.m-hide.new-list")
     public WebElement createAListBtn;
 
-
-
+    public HomePage() {
+        PageFactory.initElements(BrowserUtils.getDriver(), this);
+    }
 
 }
