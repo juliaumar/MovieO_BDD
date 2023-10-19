@@ -23,14 +23,21 @@ public class HomeSteps implements CommonPage {
     @Given("I open url of homepage")
     public void i_open_url_of_homepage() {
         BrowserUtils.getDriver();
-
-
-
-
     }
 
     @Then("Verify Title of Home page is {string}")
     public void verifyTitleOfHomePageIs(String title) {
         Assert.assertEquals(title, BrowserUtils.getDriver().getTitle());
+    }
+    @When("Click in the Browse Movies button")
+    public void clickInTheBrowseMoviesButton() throws InterruptedException {
+        BrowserUtils.click(page.browseMoviesBtn);
+        Thread.sleep(3000);
+    }
+
+    @Then("Verify the Title of Browse Movies page is {string}")
+    public void verifyTheTitleOfBrowseMoviesPageIs(String title) {
+        Assert.assertEquals(title, BrowserUtils.getDriver().getTitle());
+        System.out.println(BrowserUtils.getDriver().getTitle());
     }
     }
