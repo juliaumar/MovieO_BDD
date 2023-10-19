@@ -127,12 +127,15 @@ public class BrowserUtils {
         return element.getText();
     }
 
-    public static void click(WebElement element){
+    public static void click(WebElement element) {
         //TODO: apply report -> logInfo("clicked the button ", element);
         waitForElementClickability(element);
         moveIntoView(element);
         highlightElement(element);
+        BrowserUtils.getDriver().navigate().refresh();
+        waitForPageToReload();
         element.click();
+        waitForPageFinishLoading();
     }
 
     public static void assertEquals(String actual, String expected){
@@ -233,7 +236,17 @@ public class BrowserUtils {
                 driver.switchTo().window(eachWindow);
             }
         }
+    }
+        public static void waitForPageToReload() {
+            getDriver().navigate().refresh();
+            JavascriptExecutor jsExecutor = (JavascriptExecutor) getDriver();
+            jsExecutor.executeScript("return document.readyState").equals("complete");
+        }
+        public static void waitForPageFinishLoading() {
+            JavascriptExecutor jsExecutor = (JavascriptExecutor) getDriver();
+            jsExecutor.executeScript("return document.readyState").equals("complete");
+        }
 
 
     }
-}
+

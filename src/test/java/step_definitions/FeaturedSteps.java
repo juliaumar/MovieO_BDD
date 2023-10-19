@@ -17,9 +17,10 @@ public class FeaturedSteps implements CommonPage {
 
 
     @When("I click on the FEATURED link button on the top of the Home page")
-    public void iClickOnTheFEATUREDLinkButtonOnTheTopOfTheHomePage() {
+    public void iClickOnTheFEATUREDLinkButtonOnTheTopOfTheHomePage() throws InterruptedException {
         page.featuredLink.click();
-        BrowserUtils.getDriver().get("https://movieo.me/featured");
+        Thread.sleep(2000);
+
     }
     @Then("I verify the title of the featured page {string}")
     public void iVerifyTheTitleOfTheFeaturedPage(String title) {
