@@ -12,3 +12,5 @@ Feature: Home Page Related Scenarios
   Scenario: Verify the Title of the Browse Movies page
     When Click in the Browse Movies button
     Then Verify the Title of Browse Movies page is "Movies"
+
+
