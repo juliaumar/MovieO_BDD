@@ -30,4 +30,8 @@ public class HomeSteps implements CommonPage {
     }
 
 
+    @Then("Verify the text {string} is displayed")
+    public void verifyTheTextIsDisplayed(String txt) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_CLASS, txt))));
+    }
 }

@@ -59,7 +59,7 @@ public class BrowserUtils {
 
 
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
         driver.get(ConfigReader.readProperty("url"));
     }
 

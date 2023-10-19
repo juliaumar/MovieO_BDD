@@ -8,4 +8,6 @@ Feature: Home Page Related Scenarios
   Scenario: Verify the Title of the page
     Then Verify Title of Home page is "Movieo"
 
-
+@US12
+Scenario: Verification of the text 'Deciding...'
+Then Verify the text "Deciding what to watch next?" is displayed

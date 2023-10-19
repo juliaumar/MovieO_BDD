@@ -15,11 +15,9 @@ public class HomePage {
 
     @FindBy(xpath = "//*[@data-gtm-location='left nav']")
     public List<WebElement> list;
-    
 
-
-
-
+    @FindBy(xpath = "//span[text()='Deciding what to watch next?']")
+    public WebElement text;
 
 
 }
